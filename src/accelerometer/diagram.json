@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "wokwi-pi-pico",
+        "id": "pico",
+        "top": 0,
+        "left": 0,
+        "attrs": { "env": "micropython-20231227-v1.22.0" }
+      },
+      {
+        "type": "wokwi-mpu6050",
+        "id": "imu1",
+        "top": 13.42,
+        "left": -208.88,
+        "rotate": 90,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": -128.4,
+        "left": -44.2,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": -128.4,
+        "left": -73,
+        "attrs": { "color": "green" }
+      }
+    ],
+    "connections": [
+      [ "imu1:SCL", "pico:GP15", "green", [ "h37.56", "v137.03" ] ],
+      [ "imu1:SDA", "pico:GP14", "blue", [ "h66.36", "v137.03" ] ],
+      [ "imu1:VCC", "pico:3V3", "red", [ "v143.48", "h248.76", "v-169.65" ] ],
+      [ "imu1:GND", "pico:GND.7", "black", [ "h18.36", "v143.48", "h220.8", "v-131.25" ] ],
+      [ "led1:A", "pico:GP3", "green", [ "v0" ] ],
+      [ "led1:C", "pico:GND.2", "black", [ "v0" ] ],
+      [ "led2:C", "pico:GND.2", "black", [ "v28.8", "h0.4", "v137.55" ] ],
+      [ "led2:A", "pico:GP4", "green", [ "v144", "h54" ] ]
+    ],
+    "dependencies": {}
+  }
