@@ -43,7 +43,7 @@ View the Raspberry Pi Pico on [Wokwi](https://wokwi.com/projects/425583691447665
 
 ### Step 2: LED Connection
 
-- Insert the LEDs into the breadboard. The cathode (longer leg) should be connected to a GPIO pin on the Pi Pico and the anode (shorter leg) should be connected to a resistor, which is then connected to ground.
+- Insert the LEDs into the breadboard. The cathode (longer leg) should be connected to a GPIO pin on the Pi Pico and the anode (shorter leg) should be connected to a resistor, which is then connected to ground. The resistors are used to limit the current flowing through the LED, which prevents it from burning out. 
 
 | GPIO Pin | LED Cathode | Resistor | Ground |
 |----------|-------------|----------|--------|
@@ -73,8 +73,8 @@ View the Raspberry Pi Pico on [Wokwi](https://wokwi.com/projects/425583691447665
 
 | MP6050 Pin | Pi Pico Pin  | Colour |
 |------------|--------------| -------- |
-| SCL        | GPIO 15      |  Orange     |
-| SDA        | GPIO 14      |  White        |
+| SCL        | GPIO 15      |  Orange  |
+| SDA        | GPIO 14      |  White   |
 
 ![Step 4](./images/step4.jpg){ width=400px }
 

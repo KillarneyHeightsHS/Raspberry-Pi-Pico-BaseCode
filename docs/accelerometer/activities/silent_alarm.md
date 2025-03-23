@@ -3,7 +3,7 @@
 
     1. Draw a flowchart that represents the flow and decisions of the code. You can choose to draw it on paper, [draw.io](https://app.diagrams.net/), [lucidchart](https://www.lucidchart.com). Remember the symbols for a flowchart are:
      ![Flowchart Symbols](./images/flowchart_symbols.png)
-    2. Update the wokwi simulation to include a button for activating the sensor. Use the code as a guide for how it should be connected.
+    2. Update the Wokwi simulation to include a button for activating the sensor. Use the code as a guide for how it should be connected.
     3. Update the code and try to run the simulator. You may need to debug your simulation if it is not working.
 
     ```python
