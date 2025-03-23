@@ -64,3 +64,4 @@ extra_javascript:
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 plugins:
   - search
+  - glightbox:

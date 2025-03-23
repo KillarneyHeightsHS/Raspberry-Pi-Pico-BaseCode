@@ -7,14 +7,14 @@ We will be using an MP6050 which is 6-axis Motion Tracking Device which can also
 View the Raspberry Pi Pico on [Wokwi](https://wokwi.com/projects/425583691447665665){ target="_blank" } that has been setup with an MPU6050. 
 
 - You should see a Pi Pico connected to the MP6050 and 2 LEDs. 
-![Accelerometer](../../images/accelerometer.png){ width=400px }
+![Accelerometer](./images/motion_wiring.png){ width=400px }
 
 
 !!! Activity
     1. Read the code and predict what will happen when you run the simulation.
 
     2. Run the simulation and click on the MP6050 to alter the pitch of the device (x-rotation).
-    ![Running Accelerometer](../../images/active_accelerometer.png){ width=600px }
+    ![Running Accelerometer](./images/motion_example.png){ width=600px }
 
     3. Why do the LEDs change?
     4. Modify the code to handle y or z rotation?
@@ -34,7 +34,7 @@ View the Raspberry Pi Pico on [Wokwi](https://wokwi.com/projects/425583691447665
 !!! Note
     - Red wires are power
     - Black wires are ground
-    - Blue and Green wires are signal
+    - Other coloured wires are signals
 
 ### Step 1: Pico and MPU6050
 
