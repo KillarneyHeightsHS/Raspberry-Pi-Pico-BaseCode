@@ -30,7 +30,12 @@ class MPU6050:
         self.i2c.writeto_mem(self.address, 0x6B, bytes([0x01]))
 
     def sleep(self) -> None:
-        """Places MPU-6050 in sleep mode (low power consumption). Stops the internal reading of new data. Any calls to get gyro or accel data while in sleep mode will remain unchanged - the data is not being updated internally within the MPU-6050!"""
+        """
+            Places MPU-6050 in sleep mode (low power consumption). 
+            Stops the internal reading of new data. Any calls to get gyro or accel 
+            data while in sleep mode will remain unchanged - the data is not being 
+            updated internally within the MPU-6050!
+        """
         self.i2c.writeto_mem(self.address, 0x6B, bytes([0x40]))
         
     def who_am_i(self) -> int:
@@ -57,7 +62,7 @@ class MPU6050:
         
         # set the modified based on the gyro range (need to divide to calculate)
         gr:int = self.read_gyro_range()
-        modifier:float = None
+        modifier:float = 0.0
         if gr == 0:
             modifier = 131.0
         elif gr == 1:
@@ -88,7 +93,7 @@ class MPU6050:
         
         # set the modified based on the gyro range (need to divide to calculate)
         ar:int = self.read_accel_range()
-        modifier:float = None
+        modifier:float = 0.0
         if ar == 0:
             modifier = 16384.0
         elif ar == 1:
@@ -117,7 +122,7 @@ class MPU6050:
 
         # check range
         if range < 0 or range > 6:
-            raise Exception("Range '" + str(range) + "' is not a valid low pass filter setting.")
+            raise Exception(f"Range '{str(range)}' is not a valid low pass filter setting.")
         
         self.i2c.writeto_mem(self.address, 0x1A, bytes([range]))
 
@@ -132,7 +137,10 @@ class MPU6050:
         return value   
 
     def _hex_to_index(self, range:int) -> int:
-        """Converts a hexadecimal range setting to an integer (index), 0-3. This is used for both the gyroscope and accelerometer ranges."""
+        """
+            Converts a hexadecimal range setting to an integer (index), 0-3. 
+            This is used for both the gyroscope and accelerometer ranges.
+        """
         if range== 0x00:
             return 0
         elif range == 0x08:
@@ -142,10 +150,13 @@ class MPU6050:
         elif range == 0x18:
             return 3
         else:
-            raise Exception("Found unknown gyro range setting '" + str(range) + "'")
+            raise Exception(f"Found unknown gyro range setting '{str(range)}'")
         
     def _index_to_hex(self, index:int) -> int:
-        """Converts an index integer (0-3) to a hexadecimal range setting. This is used for both the gyroscope and accelerometer ranges."""
+        """
+            Converts an index integer (0-3) to a hexadecimal range setting. 
+            This is used for both the gyroscope and accelerometer ranges.
+        """
         if index == 0:
             return 0x00
         elif index == 1:
@@ -155,4 +166,4 @@ class MPU6050:
         elif index == 3:
             return 0x18
         else:
-            raise Exception("Range index '" + index + "' invalid. Must be 0-3.")
+            raise Exception(f"Range index '{index}' invalid. Must be 0-3.")

@@ -81,10 +81,42 @@ View the Raspberry Pi Pico on [Wokwi](https://wokwi.com/projects/425583691447665
 ### Step 5: Code Implementation
 
 1. Open VSCode and create a new Raspberry Pi Pico project.
-2. Copy the file `mpu6050.py` from the [repository](){target=_blank} into your project folder.
+2. Copy the file `mpu6050.py` from the [repository](https://github.com/KillarneyHeightsHS/Raspberry-Pi-Pico-BaseCode/blob/main/src/accelerometer/mpu6050.py){target=_blank} into your project folder.
 3. Create a file called main.py and add the following code:
 ```python
+from mpu6050 import MPU6050
+from machine import Pin, I2C
+import time
 
+time.sleep(0.1) # Wait for USB to become ready
+
+errorLed = Pin(19, Pin.OUT)
+okLed = Pin(18, Pin.OUT)
+
+i2c = I2C(1, sda=Pin(14), scl=Pin(15))
+mpu = MPU6050(i2c)
+
+# wake up the MPU6050 from sleep
+mpu.wake()
+
+
+try:
+  # continuously print the data
+  while True:
+      gyro = mpu.read_gyro_data()
+      accel = mpu.read_accel_data()
+      print("Gyro: " + str(gyro) + ", Accel: " + str(accel))
+
+      if 20 > gyro[0] > -20:
+        okLed.high()
+        errorLed.low()
+      else:
+        okLed.low()
+        errorLed.high()
+
+      time.sleep(0.1)
+except:
+  pass
 ```
 
 ### Step 6: Upload and Run the Code
@@ -93,8 +125,11 @@ View the Raspberry Pi Pico on [Wokwi](https://wokwi.com/projects/425583691447665
 2. Click on the Toggle Virtual MicroPython Workspace button to open a new VSCode window with the MicroPython workspace.
 3. Right click on the 'mpu6050.py' file and select 'Upload file to Pico'.
 4. Check that the file has been uploaded by checking the 'Mpy Remote Workspace' folder
-5. Select the `main.py` file and click run to run the program on the Pi Pico.
+5. Select the `main.py` file and click run to execute the program on the Pi Pico.
 
+![Motion VSCode](./images/motion_vscode.png)
+
+[![Motion Video](./images/motion_video.png){width=400}](https://www.youtube.com/shorts/IfLBH9w75h0){_target="_blank"}
 
 !!! Note
     - You will need to have followed the [getting started guide](../../index.md) to set up VSCode for Raspberry Pi Pico development.
