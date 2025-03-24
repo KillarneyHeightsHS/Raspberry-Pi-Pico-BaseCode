@@ -7,6 +7,11 @@ You have been approached to develop a parking sensor system for a car. The syste
 ## Steps to Implement
 This system is more complex than those done previously. We will build the system in stages and test each stage before moving on to the next. We will start by setting up the ultrasonic sensor and reading distance data from it.
 
+# Wiring Schematic
+
+![Wiring Schematic](./images/wiring_parking_sensor.png){ width=400}
+
+
 ### Step 1: Components
 - [Ultrasonic Sensor](../index.md#ultrasonic-sensors) (SR04)
 - 8 LED RGB Module
