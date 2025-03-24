@@ -7,7 +7,7 @@ You have been approached to develop a parking sensor system for a car. The syste
 ## Steps to Implement
 This system is more complex than those done previously. We will build the system in stages and test each stage before moving on to the next. We will start by setting up the ultrasonic sensor and reading distance data from it.
 
-# Wiring Schematic
+## Wiring Schematic
 
 ![Wiring Schematic](./images/wiring_parking_sensor.png){ width=400}
 
@@ -138,15 +138,18 @@ while True:
     - Experiment with different colours for the LED ring.
 
 
-### Step 4: Setup the LCD Display (Optional)
-Connect the LCD display to the Raspberry Pi Pico according to the wiring diagram. Make sure to connect the VCC and GND pins of the module to a 3.3V power source on the Raspberry Pi Pico.
+### Step 4: Setup the Passive Buzzer
+Connect the passive buzzer to the Raspberry Pi Pico according to the wiring diagram. Make sure to connect the `+` symbol on top of it to a 3.3V power source.
 
-| LCD Display | Raspberry Pi Pico | Colour |
-|-------------|-------------------| ---|
-| VCC         | 3.3V              | Red |
-| GND         | GND               | Black |
-| SDA         | GP14              | Brown |
-| SCL         | GP15              | Orange |
+- The passive buzzer has a `+` symbol on top of it. This should be connected to the 3.3V power source.
+- Your kit has 2 types of transistors. We want to use the NPN one which is labelled `S8050` on the flat side of the transistor.
+
+![Buzzer Wiring](./images/wiring_buzzer.png)
+
+In the diagram pay attention to how the Buzzer is connected to the NPN transistor and that the 1k resistor is connected between the transistor and the signal pin (Pin 15).
+
+!!! Note
+    - You do not need to wire up the button. It is not required for this project.
 
 ```python
 # Import necessary libraries
