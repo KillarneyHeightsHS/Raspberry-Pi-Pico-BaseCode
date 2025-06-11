@@ -1,9 +1,9 @@
 
 1. The code below supports movement detection. When the button is pushed, it activates the accelerometer. Any slight movement after the button is pressed with trigger an alarm.
 
-    1. Draw a flowchart that represents the flow and decisions of the code. You can choose to draw it on paper, [draw.io](https://app.diagrams.net/), [lucidchart](https://www.lucidchart.com). Remember the symbols for a flowchart are:
+    1. Draw a flowchart that represents the flow and decisions of the code. Include a copy in your workbook. You can choose to draw it on paper, [draw.io](https://app.diagrams.net/), [lucidchart](https://www.lucidchart.com). Remember the symbols for a flowchart are:
      ![Flowchart Symbols](./images/flowchart_symbols.png)
-    2. Update the Wokwi simulation to include a button for activating the sensor. Use the code as a guide for how it should be connected.
+    2. Following the [wokwi wiring diagram](https://wokwi.com/projects/425618277027296257) to create the silent alarm.
     3. Update the code and try to run the simulator. You may need to debug your simulation if it is not working.
 
     ```python
@@ -57,5 +57,5 @@
         time.sleep(0.1)
     ```
 
-    4. There is a bug in the solution. The alarm keeps re-arming. Change the code so that it is only armed once.
-    5. **Extension:** Adjust the system and code to include an alarm sound that turns off after 3 seconds. 
+4. There is a bug in the solution. The alarm keeps re-arming. Change the code so that it is only armed once.
+5. **Extension:** Adjust the system and code to include an alarm sound that turns off after 3 seconds. 
