@@ -15,7 +15,7 @@ This code sets up a web server that can be accessed via the Pico W's IP address.
 
 **Step 1.** Download all files in the [Phew Code](https://github.com/pimoroni/phew/tree/main/phew) github repository.
 
-**Step 2.** Create a folder on your Pico W called /libs/phew and copy all files from step 1 into the folder
+**Step 2.** Create a folder on your Pico W called `/lib/phew` and copy all files from step 1 into the folder
 
 **Step 3.** Create a file called `index.html` and add the following code to it
 
@@ -74,7 +74,7 @@ This code sets up a web server that can be accessed via the Pico W's IP address.
 **Step 4.** Create a file called `main.py` and paste the following code into it:
 
 ``` python
-from phew import server, connect_to_wifi
+from phew import server, access_point
 import machine
 
 wifi = access_point("My-Access-Point-Beverley","1234567890")
@@ -147,3 +147,5 @@ server.run()
 !!! Question
     - What other features could be added to this webserver?
     - How could you use this to display a dashboard of sensor data?
+    - How could you add authentication to this webserver?
+    - Try and adapt the webserver code to work with one of the sensors or displays in your kit.
