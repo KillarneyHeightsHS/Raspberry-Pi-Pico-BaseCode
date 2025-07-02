@@ -1,0 +1,2379 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../led/activities/blinky/">
+      
+      
+        <link rel="next" href="../webserver/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Servo Motors - Mechatronics and Automation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#servo-motors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mechatronics and Automation" class="md-header__button md-logo" aria-label="Mechatronics and Automation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mechatronics and Automation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Servo Motors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mechatronics and Automation" class="md-nav__button md-logo" aria-label="Mechatronics and Automation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Mechatronics and Automation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Accelerometer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Accelerometer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accelerometer/accelerometer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accelerometer &amp; Gyroscope
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Activities
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Activities
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accelerometer/activities/motion_detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Motion Detection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accelerometer/activities/silent_alarm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Silent alarm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Distance
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Distance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Distance Sensors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Activity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Activity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distance/activity/distance_monitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Parking Sensor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Electronics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Electronics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../electronics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Electronics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Led
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Led
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../led/led/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Light Emitting Diode (LED)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Activities
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Activities
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../led/activities/blinky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blinking LED
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Servo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Servo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Servo Motors
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Servo Motors
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-to-pulse-width-modulation-pwm" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction to Pulse Width Modulation (PWM)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introduction to Pulse Width Modulation (PWM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-pwm-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key PWM Concepts:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uses-of-pwm-in-electronics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uses of PWM in Electronics:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-types-of-servo-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Types of Servo Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Types of Servo Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-standard-180-servo-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Standard 180° Servo Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Standard 180° Servo Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components-of-a-180-servo-motor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components of a 180° Servo Motor:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-continuous-rotation-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Continuous Rotation Servos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Continuous Rotation Servos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-continuous-rotation-servos-differ" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Continuous Rotation Servos Differ:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-how-servos-interpret-pwm-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. How Servos Interpret PWM Signals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. How Servos Interpret PWM Signals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-pwm-control-for-180-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 PWM Control for 180° Servos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-pwm-control-for-continuous-rotation-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 PWM Control for Continuous Rotation Servos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pwm-calculations-and-duty-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. PWM Calculations and Duty Cycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. PWM Calculations and Duty Cycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formula:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-controlling-servos-with-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Controlling Servos with Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Controlling Servos with Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-controlling-a-standard-180-servo" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Controlling a Standard 180° Servo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Controlling a Standard 180° Servo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#micropython-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroPython Implementation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-controlling-a-continuous-rotation-servo" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Controlling a Continuous Rotation Servo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-duty-value-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Duty Value Calculation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-common-issues-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Common Issues and Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Common Issues and Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servo-jitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servo Jitter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limited-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limited Range
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servo-stutter-or-trembling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servo Stutter or Trembling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limited-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limited Motion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-practical-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Practical Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Practical Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-applications-of-180-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Applications of 180° Servos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Applications of 180° Servos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-application-accessible-automatic-door" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Application: Accessible Automatic Door
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-applications-of-continuous-rotation-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Applications of Continuous Rotation Servos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Applications of Continuous Rotation Servos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-application-line-following-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Application: Line-Following Robot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-comparing-servo-types-and-other-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Comparing Servo Types and Other Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Comparing Servo Types and Other Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-standard-180-servos-vs-continuous-rotation-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Standard 180° Servos vs. Continuous Rotation Servos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-servo-motors-vs-dc-motors-vs-stepper-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Servo Motors vs. DC Motors vs. Stepper Motors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-wiring-diagram-for-raspberry-pi-pico-and-sg90-servo" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Wiring Diagram for Raspberry Pi Pico and SG90 Servo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-control-systems-with-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Control Systems with Servos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Control Systems with Servos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-loop-vs-closed-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop vs. Closed-Loop Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-application-self-levelling-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Application: Self-Levelling Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Webserver
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Webserver
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-to-pulse-width-modulation-pwm" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction to Pulse Width Modulation (PWM)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introduction to Pulse Width Modulation (PWM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-pwm-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key PWM Concepts:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uses-of-pwm-in-electronics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uses of PWM in Electronics:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-types-of-servo-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Types of Servo Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Types of Servo Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-standard-180-servo-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Standard 180° Servo Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Standard 180° Servo Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components-of-a-180-servo-motor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components of a 180° Servo Motor:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-continuous-rotation-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Continuous Rotation Servos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Continuous Rotation Servos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-continuous-rotation-servos-differ" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Continuous Rotation Servos Differ:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-how-servos-interpret-pwm-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. How Servos Interpret PWM Signals
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. How Servos Interpret PWM Signals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-pwm-control-for-180-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 PWM Control for 180° Servos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-pwm-control-for-continuous-rotation-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 PWM Control for Continuous Rotation Servos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pwm-calculations-and-duty-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. PWM Calculations and Duty Cycle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. PWM Calculations and Duty Cycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formula:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-controlling-servos-with-raspberry-pi-pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Controlling Servos with Raspberry Pi Pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Controlling Servos with Raspberry Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-controlling-a-standard-180-servo" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Controlling a Standard 180° Servo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Controlling a Standard 180° Servo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#micropython-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroPython Implementation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-controlling-a-continuous-rotation-servo" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Controlling a Continuous Rotation Servo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-duty-value-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Duty Value Calculation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-common-issues-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Common Issues and Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Common Issues and Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servo-jitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servo Jitter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limited-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limited Range
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servo-stutter-or-trembling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servo Stutter or Trembling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limited-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limited Motion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-practical-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Practical Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Practical Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-applications-of-180-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Applications of 180° Servos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Applications of 180° Servos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-application-accessible-automatic-door" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Application: Accessible Automatic Door
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-applications-of-continuous-rotation-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Applications of Continuous Rotation Servos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Applications of Continuous Rotation Servos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-application-line-following-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Application: Line-Following Robot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-comparing-servo-types-and-other-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Comparing Servo Types and Other Motors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Comparing Servo Types and Other Motors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-standard-180-servos-vs-continuous-rotation-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Standard 180° Servos vs. Continuous Rotation Servos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-servo-motors-vs-dc-motors-vs-stepper-motors" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Servo Motors vs. DC Motors vs. Stepper Motors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-wiring-diagram-for-raspberry-pi-pico-and-sg90-servo" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Wiring Diagram for Raspberry Pi Pico and SG90 Servo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-control-systems-with-servos" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Control Systems with Servos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Control Systems with Servos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-loop-vs-closed-loop-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open-Loop vs. Closed-Loop Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-application-self-levelling-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Application: Self-Levelling Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="servo-motors">Servo Motors</h1>
+<h2 id="1-introduction-to-pulse-width-modulation-pwm">1. Introduction to Pulse Width Modulation (PWM)</h2>
+<p>Pulse Width Modulation (PWM) is a technique used to encode information or control the amount of power delivered to a device by varying the width of pulses in a periodic signal. In simpler terms, PWM rapidly switches a digital signal between on (HIGH) and off (LOW) states at a specific frequency, with the ratio of "on time" to "total time" (known as duty cycle) determining the average power delivered.</p>
+<p><a class="glightbox" href="images/micro-servo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Micro Servo" src="images/micro-servo.jpg" /></a></p>
+<h3 id="key-pwm-concepts">Key PWM Concepts:</h3>
+<ul>
+<li><strong>Period</strong>: The time it takes for one complete cycle (measured in seconds or milliseconds)</li>
+<li><strong>Frequency</strong>: The number of complete cycles per second (measured in Hertz, Hz)</li>
+<li><strong>Duty Cycle</strong>: The percentage of time the signal is HIGH during one period</li>
+<li><strong>Pulse Width</strong>: The duration of the HIGH state (measured in microseconds for servos)</li>
+</ul>
+<p><a class="glightbox" href="images/pwm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="PWM Signal Visualisation" src="images/pwm.png" /></a></p>
+<h3 id="uses-of-pwm-in-electronics">Uses of PWM in Electronics:</h3>
+<p>PWM is used in micro-controller boards because they can only produce digital (on or off) voltage pulses rather than continuous analog voltage. PWM effectively simulates an analog output by switching rapidly between on and off states.</p>
+<p>Common uses of PWM include:</p>
+<ul>
+<li>Controlling motor speed (DC motors)</li>
+<li>Controlling servo position (standard 180° servos)</li>
+<li>Controlling servo speed and direction (continuous rotation servos)</li>
+<li>LED brightness control</li>
+<li>Audio generation</li>
+<li>Power regulation</li>
+</ul>
+<p>PWM is a clever solution that allows digital systems to control analog devices by using the duration (width) of digital pulses rather than varying the voltage directly.</p>
+<h2 id="2-types-of-servo-motors">2. Types of Servo Motors</h2>
+<p>There are two main types of servo motors commonly used in electronics and robotics projects: standard 180° servos and continuous rotation servos. Each has distinct characteristics and applications.</p>
+<h3 id="21-standard-180-servo-motors">2.1 Standard 180° Servo Motors</h3>
+<p>Standard 180° servo motors are designed to rotate to specific angular positions within a 180-degree range. These are the most common type of servos used in hobbyist electronics, robotics, and RC applications.</p>
+<h4 id="key-characteristics">Key Characteristics:</h4>
+<ul>
+<li>Limited rotational range (typically 0° to 180°)</li>
+<li>Precise positional control</li>
+<li>Ability to hold a specific angle against opposing forces</li>
+<li>Built-in position feedback (via potentiometer)</li>
+</ul>
+<h4 id="components-of-a-180-servo-motor">Components of a 180° Servo Motor:</h4>
+<ul>
+<li>DC motor (provides the rotational power)</li>
+<li>Gearbox (for torque amplification and speed reduction)</li>
+<li>Potentiometer (for position feedback)</li>
+<li>Control circuit (interprets PWM signals)</li>
+</ul>
+<p>A servo motor has a 'closed-loop' control system that uses feedback to control its position. The potentiometer is attached to the output axle and as the axle turns, it changes the voltage delivered to the control circuit. This voltage is proportional to the rotation of the gear and can be measured against the voltage originally sent to the servo, causing the motor to rotate until the two match.</p>
+<h3 id="22-continuous-rotation-servos">2.2 Continuous Rotation Servos</h3>
+<p>Unlike standard servos, continuous rotation servos are modified to allow complete 360° rotation. They're essentially a hybrid between a standard servo and a geared DC motor.</p>
+<h4 id="key-characteristics_1">Key Characteristics:</h4>
+<ul>
+<li>Unlimited rotation in either direction</li>
+<li>Speed and direction control (rather than position control)</li>
+<li>Usually no position feedback</li>
+<li>Same form factor and control interface as standard servos</li>
+</ul>
+<h4 id="how-continuous-rotation-servos-differ">How Continuous Rotation Servos Differ:</h4>
+<ul>
+<li>The potentiometer is either removed or fixed in the center position</li>
+<li>The mechanical stops are removed to allow full rotation</li>
+<li>PWM signals control speed and direction rather than position</li>
+<li>1.5ms pulse (neutral) stops the servo</li>
+<li>&lt;1.5ms pulses rotate in one direction (faster as pulse width decreases)</li>
+<li>&gt;1.5ms pulses rotate in the other direction (faster as pulse width increases)</li>
+</ul>
+<h2 id="3-how-servos-interpret-pwm-signals">3. How Servos Interpret PWM Signals</h2>
+<h3 id="31-pwm-control-for-180-servos">3.1 PWM Control for 180° Servos</h3>
+<p>Standard 180° servos use PWM signals to determine their position. The width of the pulse tells the servo where to position its shaft:</p>
+<ul>
+<li><strong>1.0ms pulse width (1000μs)</strong>: Moves to 0° position</li>
+<li><strong>1.5ms pulse width (1500μs)</strong>: Moves to 90° position (center)</li>
+<li><strong>2.0ms pulse width (2000μs)</strong>: Moves to 180° position</li>
+</ul>
+<p>Most servos expect these pulses to be sent at a frequency of 50Hz, which means a period of 20ms (<span class="arithmatex">\(1 second ÷ 50 = 0.02 seconds\)</span> or 20ms).</p>
+<p><a class="glightbox" href="images/pwm_servo_control.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Servo Control Pulses" src="images/pwm_servo_control.png" /></a></p>
+<h3 id="32-pwm-control-for-continuous-rotation-servos">3.2 PWM Control for Continuous Rotation Servos</h3>
+<p>For continuous rotation servos, the PWM signal controls speed and direction rather than position:</p>
+<ul>
+<li><strong>1.5ms pulse width (1500μs)</strong>: No rotation (stop)</li>
+<li><strong>&lt; 1.5ms pulse width</strong>: Clockwise rotation (shorter pulse = faster rotation)</li>
+<li><strong>&gt; 1.5ms pulse width</strong>: Counter-clockwise rotation (longer pulse = faster rotation)</li>
+</ul>
+<p>At the extremes:</p>
+<ul>
+<li><strong>1.0ms pulse width</strong>: Maximum speed in clockwise direction</li>
+<li><strong>2.0ms pulse width</strong>: Maximum speed in counter-clockwise direction</li>
+</ul>
+<p>The control principle is similar to standard servos, but the interpretation of the signal is different. Instead of moving to a position, the continuous rotation servo will rotate at a speed proportional to how far the pulse width is from the neutral 1.5ms point.</p>
+<h2 id="3-pwm-calculations-and-duty-cycle">3. PWM Calculations and Duty Cycle</h2>
+<p>To control a servo using PWM, we need to understand how to calculate the appropriate duty cycle:</p>
+<h3 id="formula">Formula:</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Duty Cycle (%) = (Pulse Width / Period) × 100%
+</code></pre></div>
+<p>For a servo with a 50Hz signal (20ms period):</p>
+<ul>
+<li>1ms pulse = (1ms / 20ms) × 100% = 5% duty cycle (0° position)</li>
+<li>1.5ms pulse = (1.5ms / 20ms) × 100% = 7.5% duty cycle (90° position)</li>
+<li>2ms pulse = (2ms / 20ms) × 100% = 10% duty cycle (180° position)</li>
+</ul>
+<p>The width of the pulse is called its "duty cycle" (expressed as a percentage). This determines the rotational position of the servo shaft. The duty cycle represents the ratio of "on time" to "total time" in each PWM cycle.</p>
+<p>Microcontroller boards (like the Raspberry Pi Pico or micro:bit) use PWM to control servos because they can only produce digital (on or off) voltage pulses rather than continuous analog voltage. While regular DC motors work well with continuous voltage, servos need precisely timed pulses to determine their position.</p>
+<h2 id="4-controlling-servos-with-raspberry-pi-pico">4. Controlling Servos with Raspberry Pi Pico</h2>
+<h3 id="41-controlling-a-standard-180-servo">4.1 Controlling a Standard 180° Servo</h3>
+<p>The Raspberry Pi Pico has dedicated hardware PWM channels that can be used to control servos with high precision.</p>
+<h4 id="micropython-implementation">MicroPython Implementation:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Create a PWM object on GPIO pin 0</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">servo</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Set the PWM frequency to 50Hz (standard for servos)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">servo</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Function to set the servo angle (0-180 degrees)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_angle</span><span class="p">(</span><span class="n">angle</span><span class="p">):</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="c1"># Convert angle to duty cycle (0.5ms to 2.5ms)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="c1"># Maps angle 0-180 to duty values 1638-8192</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="c1"># 16-bit resolution means max duty value is 65535</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">duty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1638</span> <span class="o">+</span> <span class="p">(</span><span class="n">angle</span> <span class="o">/</span> <span class="mi">180</span><span class="p">)</span> <span class="o">*</span> <span class="mi">6554</span><span class="p">)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">servo</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># Move servo to different positions</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">set_angle</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># 0 degrees</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="n">set_angle</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>   <span class="c1"># 90 degrees</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="n">set_angle</span><span class="p">(</span><span class="mi">180</span><span class="p">)</span>  <span class="c1"># 180 degrees</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="c1"># Center position</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="n">set_angle</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="42-controlling-a-continuous-rotation-servo">4.2 Controlling a Continuous Rotation Servo</h3>
+<p>For continuous rotation servos, we control speed and direction rather than position:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Create a PWM object on GPIO pin 0</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">cont_servo</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Set the PWM frequency to 50Hz (standard for servos)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">cont_servo</span><span class="o">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Function to set the continuous servo speed (-100 to +100)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># -100 = maximum speed in one direction</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># 0 = stop</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># +100 = maximum speed in the other direction</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_speed</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="c1"># Convert speed (-100 to +100) to duty cycle</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="c1"># 1.5ms (center/stop) is approximately 4915 in 16-bit duty</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="c1"># We&#39;ll vary by about +/- 1638 from this center point</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="n">center_duty</span> <span class="o">=</span> <span class="mi">4915</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="n">duty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">center_duty</span> <span class="o">+</span> <span class="p">(</span><span class="n">speed</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1638</span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="n">cont_servo</span><span class="o">.</span><span class="n">duty_u16</span><span class="p">(</span><span class="n">duty</span><span class="p">)</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="c1"># Example usage</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="n">set_speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>      <span class="c1"># Stop</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="n">set_speed</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>     <span class="c1"># Half speed in one direction</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="n">set_speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>      <span class="c1"># Stop</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="n">set_speed</span><span class="p">(</span><span class="o">-</span><span class="mi">75</span><span class="p">)</span>    <span class="c1"># 75% speed in the other direction</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="n">set_speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>      <span class="c1"># Stop</span>
+</code></pre></div>
+<h3 id="understanding-the-duty-value-calculation">Understanding the Duty Value Calculation:</h3>
+<p>The Raspberry Pi Pico PWM has a 16-bit resolution, meaning duty cycles range from 0 to 65535.</p>
+<p>For a 50Hz signal with a period of 20ms:</p>
+<ul>
+<li>1ms pulse (0° for standard servo or max speed in one direction for continuous) corresponds to: (1ms / 20ms) × 65535 ≈ 3277</li>
+<li>1.5ms pulse (90° or stop) corresponds to: (1.5ms / 20ms) × 65535 ≈ 4915</li>
+<li>2ms pulse (180° or max speed in other direction) corresponds to: (2ms / 20ms) × 65535 ≈ 6554</li>
+</ul>
+<p>In practice, you may need to adjust these values slightly depending on your specific servo.</p>
+<h2 id="5-common-issues-and-troubleshooting">5. Common Issues and Troubleshooting</h2>
+<h3 id="servo-jitter">Servo Jitter</h3>
+<ul>
+<li><strong>Cause</strong>: Inconsistent PWM signal or noise</li>
+<li><strong>Solution</strong>: Add a capacitor (100-470μF) across the servo's power connections</li>
+</ul>
+<h3 id="limited-range">Limited Range</h3>
+<ul>
+<li><strong>Cause</strong>: Incorrect pulse width range</li>
+<li><strong>Solution</strong>: Adjust min/max pulse width values in your code</li>
+</ul>
+<h3 id="power-issues">Power Issues</h3>
+<ul>
+<li><strong>Cause</strong>: Insufficient current supply</li>
+<li><strong>Solution</strong>: Use a separate power supply for servos, especially when using multiple servos</li>
+</ul>
+<h3 id="servo-stutter-or-trembling">Servo Stutter or Trembling</h3>
+<p>Hobby servos sometimes 'tremble' or 'stutter' if they do not have sufficient voltage. This happens because the control circuit is constantly trying to match the feedback from the potentiometer with the desired position. If the power supply is insufficient, the motor may not have enough torque to hold the position steadily.</p>
+<h3 id="limited-motion">Limited Motion</h3>
+<p>Most hobby servos are typically limited to 180 degrees of motion, although some servos are capable of 360-degree rotation. This limitation is due to the mechanical constraints of the feedback potentiometer.</p>
+<h2 id="6-practical-applications">6. Practical Applications</h2>
+<h3 id="61-applications-of-180-servos">6.1 Applications of 180° Servos</h3>
+<p>Standard 180° servo motors are used in a wide range of mechatronic applications:</p>
+<ul>
+<li><strong>Robotics</strong>: Joint control, gripper mechanisms, robotic arms</li>
+<li><strong>Camera Systems</strong>: Pan/tilt mechanisms, focus control, gimbal stabilisation</li>
+<li><strong>RC Vehicles</strong>: Steering, throttle control</li>
+<li><strong>Automated Systems</strong>: Valve control, switches</li>
+<li><strong>Accessibility Solutions</strong>: Automatic door openers (as shown in the Skill Builder project)</li>
+<li><strong>Drone Technology</strong>: Keeping cameras level and stabilised</li>
+<li><strong>Smart Home Automation</strong>: Window and door openers, climate control actuators</li>
+<li><strong>Precision Equipment</strong>: Position control for various mechanical systems</li>
+</ul>
+<h4 id="example-application-accessible-automatic-door">Example Application: Accessible Automatic Door</h4>
+<p>A practical application using an ultrasonic distance sensor and a 180° servo motor to create an accessible automatic door:</p>
+<ol>
+<li>When a person or object gets closer than 10 centimetres from the sensor, the door opens (servo rotates to specific position)</li>
+<li>When the distance is greater than 10 centimetres, the door closes (servo returns to original position)</li>
+<li>This simple but effective system could assist people with mobility challenges</li>
+</ol>
+<h3 id="62-applications-of-continuous-rotation-servos">6.2 Applications of Continuous Rotation Servos</h3>
+<p>Continuous rotation servos are ideal for applications requiring controlled rotational motion rather than specific positioning:</p>
+<ul>
+<li><strong>Wheeled Robots</strong>: Drive wheels for small robots where controlled speed is important</li>
+<li><strong>Conveyor Systems</strong>: Small-scale conveyor belts with variable speed control</li>
+<li><strong>Rotating Platforms</strong>: Turntables, rotating displays, or scanning platforms</li>
+<li><strong>Winch Mechanisms</strong>: For pulling or lifting with controlled speed</li>
+<li><strong>Mixing Applications</strong>: Controlled stirring or mixing in maker projects</li>
+<li><strong>Motorised Camera Sliders</strong>: Creating smooth panning motion for timelapse photography</li>
+<li><strong>Fan or Propeller Control</strong>: Where variable speed is needed</li>
+</ul>
+<h4 id="example-application-line-following-robot">Example Application: Line-Following Robot</h4>
+<p>A line-following robot can use continuous rotation servos for its wheels:</p>
+<ol>
+<li>When the robot needs to follow a straight line, both continuous servos rotate at the same speed</li>
+<li>When the robot needs to turn, the speeds of the servos are adjusted relative to each other</li>
+<li>The PWM signal can precisely control the speed of each wheel, allowing for smooth navigation</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DC Motors are a better choice for driving line-following robots due to their ability to provide more torque and better speed control. </p>
+</div>
+<h2 id="7-comparing-servo-types-and-other-motors">7. Comparing Servo Types and Other Motors</h2>
+<h3 id="71-standard-180-servos-vs-continuous-rotation-servos">7.1 Standard 180° Servos vs. Continuous Rotation Servos</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>180° Servo</th>
+<th>Continuous Rotation Servo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rotation Range</td>
+<td>Limited (0-180°)</td>
+<td>Unlimited (360° continuous)</td>
+</tr>
+<tr>
+<td>Control Parameter</td>
+<td>Position</td>
+<td>Speed and direction</td>
+</tr>
+<tr>
+<td>Feedback</td>
+<td>Position feedback via potentiometer</td>
+<td>Typically no position feedback</td>
+</tr>
+<tr>
+<td>Holding Position</td>
+<td>Can hold a specific angle</td>
+<td>Cannot hold position (only stop)</td>
+</tr>
+<tr>
+<td>Applications</td>
+<td>Precise positioning, RC control</td>
+<td>Wheeled robots, continuous motion</td>
+</tr>
+<tr>
+<td>PWM Control</td>
+<td>Pulse width determines angle</td>
+<td>Pulse width determines speed &amp; direction</td>
+</tr>
+<tr>
+<td>Common Use Case</td>
+<td>Moving to specific angles</td>
+<td>Continuous rotation at controlled speeds</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-servo-motors-vs-dc-motors-vs-stepper-motors">7.2 Servo Motors vs. DC Motors vs. Stepper Motors</h3>
+<p>These three types of motors are used differently in mechatronics:</p>
+<p><strong>DC Motors:</strong>
+- Provide smooth, continuous rotational motion in clockwise and counterclockwise directions
+- Open-loop system (input current is not affected by output rotation)
+- Used in most battery-powered moving toys
+- Constructed with many windings of copper wire around a rotor</p>
+<p><strong>Standard Servo Motors:</strong>
+- Provide continuous angular movement to a specific location, often 0 to 180 degrees
+- Use closed-loop control with feedback and high torque at low speeds
+- Lower power needed compared to stepper motors
+- The output shaft is linked through a potentiometer for position feedback
+- Common in focusing for cameras, window and door openers, robotic arms, and RC vehicles</p>
+<p><strong>Continuous Rotation Servos:</strong>
+- Hybrid between standard servos and geared DC motors
+- Same form factor and control interface as standard servos
+- Provides continuous rotation with speed control
+- Often used in robotic wheels, conveyor systems, and other continuous motion applications</p>
+<p><strong>Stepper Motors:</strong>
+- Provide precise stepped angular movement using feedback control
+- High torque at high speeds
+- Higher power needed
+- Used in automated systems requiring precise movements (like 3D printers)
+- The shaft can be commanded to move and hold at specific step positions without feedback</p>
+<h2 id="8-wiring-diagram-for-raspberry-pi-pico-and-sg90-servo">8. Wiring Diagram for Raspberry Pi Pico and SG90 Servo</h2>
+<table>
+<thead>
+<tr>
+<th>Raspberry Pi Pico</th>
+<th>SG90 Servo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VBUS (5V)</td>
+<td>Red wire (Power)</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>Brown wire (Ground)</td>
+</tr>
+<tr>
+<td>GPIO 0</td>
+<td>Orange wire (Signal)</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" href="https://www.upesy.com/cdn/shop/files/servo-motor-sg90-on-raspberry-pi-pico-pinout_1024x.png?v=1683125578" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Servo Connection Diagram" src="https://www.upesy.com/cdn/shop/files/servo-motor-sg90-on-raspberry-pi-pico-pinout_1024x.png?v=1683125578" /></a></p>
+<h2 id="9-control-systems-with-servos">9. Control Systems with Servos</h2>
+<p>Servos are especially valuable in control systems, particularly in closed-loop control systems. In a closed-loop system, feedback is used to adjust the output dynamically.</p>
+<h3 id="open-loop-vs-closed-loop-control">Open-Loop vs. Closed-Loop Control</h3>
+<p><strong>Open-Loop Systems:</strong></p>
+<ul>
+<li>Do not use feedback</li>
+<li>Example: A regular DC motor where input current is not affected by its output rotation</li>
+<li>Simpler but less precise</li>
+</ul>
+<p><strong>Closed-Loop Systems:</strong></p>
+<ul>
+<li>Use feedback to continuously adjust the output</li>
+<li>Example: A servo motor where the output shaft is linked through a potentiometer</li>
+<li>More complex but provide precise positioning</li>
+</ul>
+<h3 id="practical-application-self-levelling-platform">Practical Application: Self-Levelling Platform</h3>
+<p>A practical application where a servo and accelerometer sensor create a self-levelling platform:</p>
+<ul>
+<li>The accelerometer measures the tilt of a platform</li>
+<li>The servo rotates in the opposite direction to maintain a level position</li>
+<li>This creates a stabilising gimbal effect, similar to those used for camera stabilisation</li>
+</ul>
+<h2 id="10-summary">10. Summary</h2>
+<p>PWM is a powerful technique for controlling servo motors by varying pulse widths to specify precise angular positions. For a standard 180° servo:</p>
+<ul>
+<li>Frequency: 50Hz (20ms period)</li>
+<li>Pulse width: 1.0ms to 2.0ms (corresponds to 0° to 180°)</li>
+<li>Duty cycle: Approximately 5% to 10% for full range</li>
+</ul>
+<p>With the Raspberry Pi Pico's built-in PWM capabilities, controlling servos becomes straightforward through MicroPython's PWM library, allowing for precise positioning in a variety of applications.</p>
+<p>Servos are a key component in mechatronic systems where precise position control is required. Unlike regular DC motors, they incorporate feedback mechanisms that allow them to maintain a specific position, making them ideal for applications ranging from robotic arms to automated doors and precision control systems.</p>
+<h2 id="11-conclusion">11. Conclusion</h2>
+<p>PWM is a powerful technique for controlling both standard 180° servo motors and continuous rotation servos. Understanding the differences between these servo types is essential for selecting the right motor for your application:</p>
+<ul>
+<li>
+<p><strong>Standard 180° servos</strong> excel at precise positioning tasks where you need to move to and hold specific angles. Their built-in feedback mechanism makes them ideal for robotic arms, camera systems, and other applications requiring positional accuracy.</p>
+</li>
+<li>
+<p><strong>Continuous rotation servos</strong> are perfect for applications requiring continuous motion with speed control. They're essentially a hybrid between a standard servo and a geared DC motor, making them ideal for wheeled robots and other projects requiring controlled continuous rotation.</p>
+</li>
+</ul>
+<p>Both types of servos use the same PWM control principle, but interpret the signals differently:
+- For 180° servos, pulse width determines angular position
+- For continuous rotation servos, pulse width determines rotational speed and direction</p>
+<p>With the Raspberry Pi Pico's built-in PWM capabilities, controlling either type of servo becomes straightforward through MicroPython's PWM library, allowing for precise control in a variety of applications.</p>
+<p>The choice between a standard or continuous rotation servo depends entirely on your specific project requirements. For some applications, you might even use both types together - standard servos for positioning components and continuous rotation servos for driving wheels or conveyor systems.</p>
+<h2 id="12-additional-resources">12. Additional Resources</h2>
+<ul>
+<li><a href="https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html">Raspberry Pi Pico Documentation</a></li>
+<li><a href="https://www.friendlywire.com/projects/ne555-servo-safe/SG90-datasheet.pdf">SG90 Servo Datasheet</a></li>
+<li><a href="https://docs.micropython.org/en/latest/library/machine.PWM.html">MicroPython PWM Documentation</a></li>
+<li><a href="https://learn.adafruit.com/adafruit-arduino-lesson-14-servo-motors">Servo Motor Basics Tutorial</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../led/activities/blinky/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Blinking LED">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Blinking LED
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../webserver/" class="md-footer__link md-footer__link--next" aria-label="Next: Webserver">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Webserver
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
